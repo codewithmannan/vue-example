@@ -1,7 +1,18 @@
 <template>
-  <button v-on:click="decrement()">--</button>
-  {{ counter }}
-  <button @click="increment()">++</button>
+  <h1 v-if="fruit == 'Mango'">Mango</h1>
+  <h1 v-else-if="fruit == 'Apple'">Apple</h1>
+  <h1 v-else>Orange</h1>
+  <br />
+
+  <h1 v-show="fruit == 'Mango'">Strawberry</h1>
+  <br />
+
+  <div>
+    <p v-for="value in fruits">{{ value }}</p>
+  </div>
+
+  <br />
+  <h1>{{ user.name }}</h1>
 </template>
 
 <!-- <script>
@@ -9,28 +20,25 @@
 export default {
   data() {
     return {
-      counter: 0,
+      fruit: 'Mango',
+      fruits: ['Apple', 'Orange', 'Strawberry', 'Avocado'],
+      user: {
+        name: 'Shakeel',
+        address: 'Sambhal',
+      },
     }
-  },
-  methods: {
-    increment() {
-      this.counter++
-    },
-    decrement() {
-      this.counter--
-    },
   },
 }
 </script> -->
 
 <script setup>
-import { ref } from 'vue'
-let counter = ref(0)
+import { ref, reactive } from 'vue'
+let fruit = ref('Mango')
 
-function increment() {
-  counter.value++
-}
-function decrement() {
-  counter.value--
-}
+let fruits = reactive(['Apple', 'Orange', 'Strawberry', 'Avocado'])
+
+let user = reactive({
+  name: 'Shakeel',
+  address: 'Sambhal',
+})
 </script>
