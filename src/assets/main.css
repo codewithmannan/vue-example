@@ -1,5 +1,5 @@
 .container {
-  padding: 50px;
+  padding: 0;
   width: 100%;
   display: grid;
   align-items: center;
@@ -7,4 +7,14 @@
 }
 .text-description {
   text-align: justify;
+}
+
+.navbar-custom {
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-custom-brand {
+  font-size: 1.7rem;
+  letter-spacing: 2px;
 }
