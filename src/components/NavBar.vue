@@ -17,8 +17,8 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/test" active-class="active" exact>
-              <i class="bi bi-calculator me-1"> </i>Test
+            <router-link class="nav-link" to="/emit-or-props" active-class="active" exact>
+              <i class="bi bi-calculator me-1"> </i>Emit or Props
             </router-link>
           </li>
         </ul>
