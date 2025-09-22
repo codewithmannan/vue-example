@@ -1,105 +1,87 @@
 <template>
-  <h1>Life Cycle Hooks</h1>
-  <p>{{ message }}</p>
-  <button @click="updateMessage">Update Message</button>
+  <div class="products-container">
+    <div v-for="item in products" :key="item.id" class="product-card">
+      <img :src="item.image" alt="Product Image" class="product-img" />
+      <div class="product-body">
+        <h2 class="product-title">{{ item.title }}</h2>
+        <p class="product-desc">{{ item.description }}</p>
+        <p class="product-price">💲 {{ item.price }}</p>
+        <p class="product-rating">⭐ {{ item.rating.rate }} ({{ item.rating.count }} reviews)</p>
+      </div>
+    </div>
+  </div>
 </template>
 
-<!-- <script>
-export default {
-  data() {
-    return {
-      message: 'Hello Vue!',
-    }
-  },
-  methods: {
-    updateMessage() {
-      this.message = 'Message Updated!'
-    },
-  },
-  beforeCreate() {
-    console.log('beforeCreate')
-  },
-  created() {
-    console.log('created')
-    // In option API best place to fetch data from Server
-
-    fetch('https://fakestoreapi.com/products')
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data)
-      })
-  },
-  beforeMount() {
-    console.log('beforeMount')
-  },
-  mounted() {
-    console.log('mounted')
-  },
-  beforeUpdate() {
-    console.log('beforeUpdate')
-  },
-  updated() {
-    console.log('updated')
-  },
-  beforeUnmount() {
-    console.log('beforeUnmount')
-  },
-  unmounted() {
-    console.log('unmounted')
-  },
-}
-</script> -->
-
 <script setup>
-/*
-Each Vue component instance goes through a series of initialization steps when it's created -
-for example, it needs to set up data observation, compile the template, mount the instance to the DOM,
-and update the DOM when data changes. Along the way, it also runs functions called lifecycle hooks,
-giving users the opportunity to add their own code at specific stages.
-*/
-
-import {
-  ref,
-  onBeforeMount,
-  onMounted,
-  onBeforeUpdate,
-  onUpdated,
-  onBeforeUnmount,
-  onUnmounted,
-} from 'vue'
-
-const message = ref('Hello Vue!')
-const updateMessage = () => {
-  message.value = 'Message Updated!'
-}
-
-onBeforeMount(() => {
-  console.log('beforeMount')
-})
+import { ref, onMounted } from 'vue'
+const products = ref([])
 
 onMounted(() => {
-  console.log('mounted')
-
   fetch('https://fakestoreapi.com/products')
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
+      products.value = data
     })
 })
-
-onBeforeUpdate(() => {
-  console.log('beforeUpdate')
-})
-
-onUpdated(() => {
-  console.log('updated')
-})
-
-onBeforeUnmount(() => {
-  console.log('beforeUnmount')
-})
-
-onUnmounted(() => {
-  console.log('unmounted')
-})
 </script>
+
+<style scoped>
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.product-img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background: #f9f9f9;
+}
+
+.product-body {
+  padding: 15px;
+}
+
+.product-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.product-desc {
+  font-size: 0.9rem;
+  color: #555;
+  height: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #e63946;
+  margin-top: 10px;
+}
+
+.product-rating {
+  font-size: 0.9rem;
+  color: #f39c12;
+}
+</style>
