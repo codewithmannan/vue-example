@@ -1,19 +1,20 @@
 <template>
   <header class="app-header">
     <!-- Left: Cart -->
-    <h1 class="app-title">E-commerce</h1>
+    <router-link tag="h1" to="/" class="app-title">E-commerce</router-link>
 
     <!-- Right: Title -->
-    <div class="app-cart">
+    <router-link to="/cart" class="app-cart">
       <span class="app-cart-icon">🛒</span>
-      <span class="app-cart-count">{{ cartCount }}</span>
-    </div>
+      <span class="app-cart-count">{{ cartCount() }}</span>
+    </router-link>
   </header>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 
-// default cart count
-const cartCount = ref(0)
+import { useCart } from '@/composable/useCart'
+
+const { cartCount } = useCart()
 </script>
