@@ -15,9 +15,28 @@
         <div class="cart-info">
           <h2 class="cart-item-title">{{ item.title }}</h2>
           <p class="cart-item-price">💲 {{ item.price.toFixed(2) }}</p>
+          <p class="cart-item-Tprice">Total: {{ (item.price * item.quantity).toFixed(2) }}</p>
           <p class="cart-item-rating">
             ⭐ {{ item.rating.rate }} ({{ item.rating.count }} reviews)
           </p>
+        </div>
+
+        <!-- Quantity Controls -->
+        <div class="cart-quantity">
+          <button
+            :disabled="item.quantity == 1"
+            @click="decrement(item.id)"
+            class="qty-btn"
+            :class="item.quantity == 1 ? 'disabled' : ''"
+          >
+            −
+          </button>
+          <span class="qty-value">{{ item.quantity }}</span>
+          <button @click="increment(item.id)" class="qty-btn">+</button>
+        </div>
+
+        <div class="cart-item-remove" @click="removeItem(item.id)">
+          <i class="fa fa-trash"></i> Remove
         </div>
       </div>
     </div>
@@ -34,7 +53,7 @@
 import { computed } from 'vue'
 import { useCart } from '@/composable/useCart'
 
-const { cartItems, totalPrice } = useCart()
+const { cartItems, removeItem, totalPrice, decrement, increment } = useCart()
 
 // calculate total price
 </script>
