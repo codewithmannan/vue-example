@@ -1,7 +1,15 @@
 <template>
-  <h1>{{ message }}</h1>
+  <HelloWorld>
+    <template #heading>
+      <h1>This is under the component</h1>
+    </template>
+
+    <template #paragraph>
+      <p>This is under the component</p>
+    </template>
+  </HelloWorld>
 </template>
 
 <script setup>
-const message = 'Hello, Vue'
+import HelloWorld from '../components/HelloWorld.vue'
 </script>
