@@ -1,13 +1,31 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import HomeView from '../views/HomeView.vue'
+import RecipieView from '../views/RecipieView.vue'
+import RecipieDetailsView from '../views/RecipieDetailsView.vue'
+import NotFound from '../views/NotFound.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
+      name: 'home',
       component: HomeView,
+    },
+    {
+      path: '/recipie',
+      name: 'recipie',
+      component: RecipieView,
+    },
+    {
+      path: '/recipie-details/:id',
+      name: 'recipie',
+      component: RecipieDetailsView,
+    },
+    {
+      path: '/:catchAll(.*)',
+      component: NotFound,
     },
   ],
 })

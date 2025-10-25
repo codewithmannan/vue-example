@@ -1,0 +1,187 @@
+[
+  {
+    "id": 1,
+    "name": "Hyderabadi Biryani",
+    "image": "https://hinzcooking.com/wp-content/uploads/2019/08/Hyderabadi-Chicken-Dum-Biryani-Recipe-2-1.jpg",
+    "description": "A fragrant and flavorful layered rice dish made with basmati rice, marinated chicken, and aromatic spices — a true taste of Hyderabad.",
+    "nutrition": {
+      "calories": 450,
+      "protein": "25 g",
+      "carbs": "55 g",
+      "fat": "15 g"
+    },
+    "stats": {
+      "reviews": 284,
+      "rating": 4.7
+    },
+    "ingredients": [
+      { "item": "Basmati Rice", "quantity": "2 cups" },
+      { "item": "Chicken", "quantity": "500 g" },
+      { "item": "Yogurt", "quantity": "1/2 cup" },
+      { "item": "Fried Onions", "quantity": "1 cup" },
+      { "item": "Biryani Masala", "quantity": "2 tbsp" },
+      { "item": "Saffron Milk", "quantity": "2 tbsp" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Paneer Butter Masala",
+    "image": "https://www.indianhealthyrecipes.com/wp-content/uploads/2023/07/paneer-butter-masala-recipe.webp",
+    "description": "Soft paneer cubes cooked in a creamy tomato-based gravy with butter and aromatic Indian spices.",
+    "nutrition": {
+      "calories": 320,
+      "protein": "12 g",
+      "carbs": "20 g",
+      "fat": "22 g"
+    },
+    "stats": {
+      "reviews": 156,
+      "rating": 4.4
+    },
+    "ingredients": [
+      { "item": "Paneer", "quantity": "200 g" },
+      { "item": "Tomatoes", "quantity": "3 large" },
+      { "item": "Butter", "quantity": "2 tbsp" },
+      { "item": "Cream", "quantity": "1/4 cup" },
+      { "item": "Garam Masala", "quantity": "1 tsp" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Masala Dosa",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQACh1yWbIwNiWJOZ-8lkt9oGkf5cdMK4DV8Q&s",
+    "description": "A crispy South Indian crepe made from fermented rice and lentil batter, stuffed with a spicy mashed potato filling.",
+    "nutrition": {
+      "calories": 280,
+      "protein": "8 g",
+      "carbs": "45 g",
+      "fat": "9 g"
+    },
+    "stats": {
+      "reviews": 198,
+      "rating": 4.6
+    },
+    "ingredients": [
+      { "item": "Dosa Batter", "quantity": "2 cups" },
+      { "item": "Potatoes", "quantity": "3 boiled" },
+      { "item": "Onion", "quantity": "1 sliced" },
+      { "item": "Mustard Seeds", "quantity": "1 tsp" },
+      { "item": "Turmeric", "quantity": "1/4 tsp" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Chole Bhature",
+    "image": "https://madhurasrecipe.com/wp-content/uploads/2025/09/MR-Chole-Bhature-featured.jpg",
+    "description": "A popular North Indian combo — spicy chickpea curry served with fluffy deep-fried bread.",
+    "nutrition": {
+      "calories": 520,
+      "protein": "16 g",
+      "carbs": "65 g",
+      "fat": "20 g"
+    },
+    "stats": {
+      "reviews": 172,
+      "rating": 4.3
+    },
+    "ingredients": [
+      { "item": "Chickpeas", "quantity": "1 cup (soaked)" },
+      { "item": "Onion", "quantity": "2 medium" },
+      { "item": "Tomatoes", "quantity": "2 large" },
+      { "item": "Chole Masala", "quantity": "2 tbsp" },
+      { "item": "Flour (for Bhature)", "quantity": "2 cups" }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Butter Chicken",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcDCEHR21Otcq7z3FQ2JCjX6hviR2zD9qlAQ&s",
+    "description": "Juicy chicken pieces cooked in a buttery tomato gravy, flavored with cream and spices — a classic Punjabi favorite.",
+    "nutrition": {
+      "calories": 380,
+      "protein": "24 g",
+      "carbs": "18 g",
+      "fat": "21 g"
+    },
+    "stats": {
+      "reviews": 243,
+      "rating": 4.8
+    },
+    "ingredients": [
+      { "item": "Chicken", "quantity": "500 g" },
+      { "item": "Butter", "quantity": "2 tbsp" },
+      { "item": "Tomato Puree", "quantity": "1 cup" },
+      { "item": "Cream", "quantity": "1/4 cup" },
+      { "item": "Kasuri Methi", "quantity": "1 tsp" }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Pav Bhaji",
+    "image": "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/11/pav-bhaji.jpg",
+    "description": "A spicy mashed vegetable curry served with buttered buns — a street food favorite from Mumbai.",
+    "nutrition": {
+      "calories": 350,
+      "protein": "10 g",
+      "carbs": "40 g",
+      "fat": "14 g"
+    },
+    "stats": {
+      "reviews": 189,
+      "rating": 4.5
+    },
+    "ingredients": [
+      { "item": "Mixed Vegetables", "quantity": "2 cups" },
+      { "item": "Potatoes", "quantity": "2 large" },
+      { "item": "Pav Bhaji Masala", "quantity": "2 tbsp" },
+      { "item": "Butter", "quantity": "3 tbsp" },
+      { "item": "Buns (Pav)", "quantity": "4 pieces" }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Vegetable Pulao",
+    "image": "https://www.indianveggiedelight.com/wp-content/uploads/2019/07/veg-pulao-featured.jpg",
+    "description": "A colorful rice dish cooked with mixed vegetables, basmati rice, and whole spices for a simple yet delicious meal.",
+    "nutrition": {
+      "calories": 290,
+      "protein": "9 g",
+      "carbs": "48 g",
+      "fat": "8 g"
+    },
+    "stats": {
+      "reviews": 134,
+      "rating": 4.2
+    },
+    "ingredients": [
+      { "item": "Basmati Rice", "quantity": "1.5 cups" },
+      { "item": "Carrot", "quantity": "1 diced" },
+      { "item": "Peas", "quantity": "1/2 cup" },
+      { "item": "Beans", "quantity": "1/2 cup" },
+      { "item": "Whole Spices", "quantity": "1 tbsp" }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Gulab Jamun",
+    "image": "https://bakewithzoha.com/wp-content/uploads/2023/04/gulab-jamun-featured.jpg",
+    "description": "Soft, deep-fried milk solids soaked in rose-flavored sugar syrup — a classic Indian dessert.",
+    "nutrition": {
+      "calories": 180,
+      "protein": "4 g",
+      "carbs": "35 g",
+      "fat": "6 g"
+    },
+    "stats": {
+      "reviews": 167,
+      "rating": 4.7
+    },
+    "ingredients": [
+      { "item": "Khoya", "quantity": "1 cup" },
+      { "item": "Flour", "quantity": "2 tbsp" },
+      { "item": "Sugar", "quantity": "1.5 cups" },
+      { "item": "Rose Water", "quantity": "1 tsp" },
+      { "item": "Cardamom Powder", "quantity": "1/2 tsp" }
+    ]
+  }
+]

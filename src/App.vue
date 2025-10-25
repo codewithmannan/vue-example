@@ -1,7 +1,11 @@
 <template>
-  <RouterView />
+  <MainLayout />
+  <div class="app-container">
+    <RouterView />
+  </div>
 </template>
 
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
+import MainLayout from './layout/MainLayout.vue'
 </script>
