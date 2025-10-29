@@ -9,11 +9,13 @@
         </p>
 
         <div class="rm-food-rating">
-          <div class="rm-stars">
-            <StarRating :rating="selectedRecipe?.stats?.rating" />
+          <div v-if="selectedRecipe?.stats?.rating" class="rm-stars">
+            <StarRating :rating="selectedRecipe?.stats?.rating || 0" />
           </div>
           <div class="rm-rating-text">
-            {{ `${selectedRecipe?.stats?.rating}/5 (${selectedRecipe?.stats?.reviews} reviews)` }}
+            {{
+              `${selectedRecipe?.stats?.rating || 0}/5 (${selectedRecipe?.stats?.reviews || 0} reviews)`
+            }}
           </div>
         </div>
       </div>
@@ -62,8 +64,7 @@
 import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import axios from 'axios'
-
-import StarRating from '@/components/StarRating.vue'
+import StarRating from '@codewithmannan/star-rating-vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -121,17 +122,24 @@ function printRecipe() {
 
 onMounted(async () => {
   const id = route.params.id
-
   if (!id) {
-    router.push('/')
+    router.push('/404')
   }
 
+  const secret = route.params.secret ? route.params.secret : ''
+
+  if (route.params.secret && secret !== 'secret') {
+    router.push('/404')
+  }
+
+  const apiUrl = secret ? '/mock/secretRecipes.json' : '/mock/recipes.json'
+
   loader.value = true
-  const response = await axios.get('../mock/recipes.json')
+  const response = await axios.get(apiUrl)
   const idData = response.data.find((item) => item.id == id)
 
   if (!idData) {
-    router.push('/')
+    router.push('/404')
   }
 
   selectedRecipe.value = idData

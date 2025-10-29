@@ -15,11 +15,16 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  secret: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const router = useRouter()
 
 function showDetails() {
-  router.push(`/recipie-details/${props.data.id}`)
+  const secret = props.secret ? '/secret' : ''
+  router.push(`/recipie-details/${props.data.id}${secret}`)
 }
 </script>

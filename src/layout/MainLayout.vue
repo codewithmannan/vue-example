@@ -7,7 +7,7 @@
       <nav class="nav-links">
         <router-link to="/" class="nav-link"> Home </router-link>
 
-        <router-link to="/recipie" class="nav-link"> Recipie </router-link>
+        <router-link to="/recipe" class="nav-link"> Secret Recipie </router-link>
       </nav>
     </div>
   </header>
