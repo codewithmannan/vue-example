@@ -7,6 +7,7 @@
       <nav class="nav-links">
         <router-link to="/" class="nav-link"> Home </router-link>
         <router-link to="/about" class="nav-link"> About </router-link>
+        <router-link to="/lazy" class="nav-link"> Private Page </router-link>
       </nav>
     </div>
   </header>
