@@ -6,14 +6,41 @@
       <!-- Nav Links -->
       <nav class="nav-links">
         <router-link to="/" class="nav-link"> Home </router-link>
-        <router-link to="/about" class="nav-link"> About </router-link>
-        <router-link to="/lazy" class="nav-link"> Private Page </router-link>
+        <router-link
+          v-if="authStore.isAuthenticated"
+          to="#"
+          class="nav-link"
+          @click.prevent="logoutUser"
+        >
+          {{ fullName }} (Logout)
+        </router-link>
+        <router-link v-else to="/login" class="nav-link"> Login </router-link>
       </nav>
     </div>
   </header>
 </template>
 
-<script setup></script>
+<script setup>
+import { useAuthStore } from '@/stores/useAuthStore'
+import { computed } from 'vue'
+import { useRouter } from 'vue-router'
+
+const authStore = useAuthStore()
+const router = useRouter()
+
+async function logoutUser() {
+  try {
+    await authStore.logout()
+    router.push('/login')
+  } catch (error) {
+    console.log('error')
+  }
+}
+
+const fullName = computed(() => {
+  return authStore.userProfile.firstName + ' ' + authStore.userProfile.lastName
+})
+</script>
 
 <style scoped>
 .main-header {

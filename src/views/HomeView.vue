@@ -1,28 +1,10 @@
 <template>
-  <h1>Counter</h1>
+  <h1>This is home page!</h1>
   <div>
-    <button @click="counterStore.decrement">-</button>
-    <span class="count">{{ counterStore.count }}</span>
-    <button @click="counterStore.increment">+</button>
-  </div>
-  <div>
-    <ShareCountValue />
+    <h4>This page is not publicly accessible only login user can access</h4>
   </div>
 </template>
 
 <script setup>
-import ShareCountValue from '@/components/ShareCountValue.vue'
-
-import { useCounter } from '@/stores/counter'
-
-const counterStore = useCounter()
+// TODO: write your code
 </script>
-
-<style scoped>
-.count {
-  padding: 10px;
-}
-button {
-  cursor: pointer;
-}
-</style>

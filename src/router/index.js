@@ -1,9 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
-
-const userLoggedIn = false
+import LoginView from '../views/LoginView.vue'
+import { useAuthStore } from '@/stores/useAuthStore'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,36 +12,29 @@ const router = createRouter({
       component: HomeView,
       meta: {
         title: 'Home | My Vue App ',
-        isRequireAuth: false,
-      },
-    },
-    {
-      path: '/about',
-      component: AboutView,
-      meta: {
-        title: 'About | My Vue App ',
-        isRequireAuth: false,
-      },
-    },
-    {
-      path: '/lazy',
-      component: () => import('../views/LazyLoadVies.vue'),
-      meta: {
-        title: 'Lazy | My Vue App ',
         isRequireAuth: true,
+      },
+    },
+    {
+      path: '/login',
+      component: LoginView,
+      meta: {
+        title: 'Login | My Vue App ',
+        isRequireAuth: false,
       },
     },
   ],
 })
 
 router.beforeEach((to, from, next) => {
+  const userAuth = useAuthStore()
+
   if (to.meta.isRequireAuth) {
     // Check user authenticated or not
-    if (userLoggedIn) {
+    if (userAuth.isAuthenticated) {
       next()
     } else {
-      alert('You are not logged In. Redirecting to home page')
-      next('/')
+      next('/login')
     }
   } else {
     next()
