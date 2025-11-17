@@ -9,7 +9,6 @@
           <h1>Welcome Back</h1>
           <p>Sign in to your account to continue</p>
         </div>
-
         <form @submit.prevent="handleLogin" class="login-form">
           <div class="form-group">
             <div class="input-with-icon">
@@ -47,9 +46,15 @@
             <a href="#" class="forgot-password">Forgot Password?</a>
           </div>
 
-          <button type="submit" class="login-btn">
-            <span>Sign In</span>
-            <i class="fas fa-arrow-right"></i>
+          <button type="submit" class="login-btn" :disabled="isSubmit">
+            <template v-if="isSubmit">
+              <i class="fas fa-sync-alt fa-spin loader-icon"></i>
+              <span>Signing In...</span>
+            </template>
+            <template v-else>
+              <span>Sign In</span>
+              <i class="fas fa-arrow-right"></i>
+            </template>
           </button>
 
           <div class="divider">
@@ -63,6 +68,7 @@
             <button type="button" class="social-btn facebook">
               <i class="fab fa-facebook-f"></i>
             </button>
+
             <button type="button" class="social-btn twitter">
               <i class="fab fa-twitter"></i>
             </button>
@@ -89,13 +95,18 @@ const form = ref({
   rememberMe: false,
 })
 
+const isSubmit = ref(false)
+
 const handleLogin = async () => {
   try {
+    isSubmit.value = true
     const response = await authStore.login(form.value)
+    isSubmit.value = false
     if (response?.data?.token) {
       router.push('/')
     }
   } catch (error) {
+    isSubmit.value = false
     console.log(error)
     alert(error?.response?.data?.error?.message)
   }

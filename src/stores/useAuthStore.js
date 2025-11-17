@@ -1,7 +1,7 @@
 // imports
 import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
-import axios from 'axios'
+import api from '@/services/axiosInterceptor'
 
 // Global Constant
 const API_URL = import.meta.env.VITE_API_URL
@@ -9,8 +9,8 @@ const API_URL = import.meta.env.VITE_API_URL
 export const useAuthStore = defineStore('authStore', () => {
   // store or state
   const user = ref({
-    token: null,
-    profile: null,
+    token: '',
+    profile: {},
   })
 
   // getter
@@ -30,26 +30,22 @@ export const useAuthStore = defineStore('authStore', () => {
 
   async function login(userData) {
     const { email, password } = userData
-    const res = await axios.post(`${API_URL}/v1/api/login`, { email, password })
+    const res = await api.post(`${API_URL}/v1/api/login`, { email, password })
     if (res?.data?.token) {
-      const profileData = await getProfileData(res.data.token)
       user.value.token = res.data.token
-      user.value.profile = profileData
 
       // Set token in local storage for token persistence
       saveTokenInLocalStorage(res.data.token)
+
+      const profileData = await getProfileData()
+      user.value.profile = profileData
     }
 
     return res
   }
 
-  async function getProfileData(token) {
-    const res = await axios.get(`${API_URL}/v1/api/profile`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-
+  async function getProfileData() {
+    const res = await api.get(`${API_URL}/v1/api/profile`)
     return res.data
   }
 

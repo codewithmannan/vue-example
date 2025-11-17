@@ -38,7 +38,11 @@ async function logoutUser() {
 }
 
 const fullName = computed(() => {
-  return authStore.userProfile.firstName + ' ' + authStore.userProfile.lastName
+  if (authStore?.userProfile?.firstName) {
+    return authStore.userProfile.firstName + ' ' + authStore.userProfile.lastName
+  } else {
+    return ''
+  }
 })
 </script>
 
