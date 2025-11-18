@@ -19,4 +19,18 @@ api.interceptors.request.use(
   },
 )
 
+api.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    if (error?.status == 401 || error?.response?.data == 'Unauthorized') {
+      // Redirect to login because token is invalid or expired
+      // Before redirect clear store and localstorage token
+      localStorage.removeItem('token')
+      window.location.href = '/login'
+    }
+
+    return Promise.reject(error)
+  },
+)
+
 export default api
